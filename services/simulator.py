@@ -1,5 +1,4 @@
 from json import loads
-import time
 
 from pynput import keyboard, mouse
 import configs
@@ -18,7 +17,6 @@ class Simulator:
     @classmethod
     def StartSimulate(cls):
         with open(configs.FILE_APPENDER, "r") as f:
-            time.sleep(1)
             while True:
                 record = f.readline()
                 if len(record) == 0:
