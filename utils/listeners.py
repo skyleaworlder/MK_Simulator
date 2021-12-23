@@ -36,3 +36,10 @@ def KeyboardOnPress(key) -> Tuple[bool, Dict]:
 @log_output
 def KeyboardOnRelease(key) -> Tuple[bool, Dict]:
     return KeyboardOnClick(key, press=False)
+
+
+LISTENER_MAP = {
+    "KEYBOARD_ON_PRESS": KeyboardOnPress,
+    "KEYBOARD_ON_RELEASE": KeyboardOnRelease,
+    "MOUSE_ON_CLICK": MouseOnClick
+}
