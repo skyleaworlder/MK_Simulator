@@ -3,6 +3,7 @@ import argparse
 from pynput.mouse import Listener as m_Listner
 from pynput.keyboard import Listener as k_Listener
 from services.listener import Listener
+from services.simulator import Simulator
 from utils.listeners import (
     KeyboardOnPress, KeyboardOnRelease, MouseOnClick
 )
@@ -22,7 +23,7 @@ args = parser.parse_args()
 
 def main():
     if args.func == FUNCTIONS["simulator"]:
-        pass
+        Simulator.StartSimulate()
     elif args.func == FUNCTIONS["listener"]:
         Listener.StartListen()
 

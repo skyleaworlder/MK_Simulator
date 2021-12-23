@@ -6,10 +6,10 @@ class BaseEvent:
 
     EVENT_TYPE = "Base"
 
-    def __init__(self, comment: str) -> None:
-        self.id: str = str(uuid4())[-6:]
+    def __init__(self, id: str, time: int, comment: str) -> None:
+        self.id: str = id
         self.etype: str = self.EVENT_TYPE
-        self.time: int = time_ns()
+        self.time: int = time
         self.comment: str = comment or ""
 
     def serialize(self) -> Dict:

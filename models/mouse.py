@@ -17,16 +17,21 @@ class MouseEvent(BaseEvent):
     EVENT_TYPE = "Mouse"
 
     def __init__(self,
+                 id: str,
+                 time: int,
                  button: mouse.Button,
                  comment: str,
                  coord: MouseCoord) -> None:
-        super().__init__(comment)
+        super().__init__(id, time, comment)
         self.button = button
         self.coord = coord
 
     def serialize(self) -> Dict:
         res = super().serialize()
-        res.update({"coord": self.coord.serialize()})
+        res.update({
+            "button": self.button._name_,
+            "coord": self.coord.serialize()
+        })
         return res
 
 
