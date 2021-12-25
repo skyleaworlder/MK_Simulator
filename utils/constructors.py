@@ -18,11 +18,11 @@ def NewKeyboardEvent(id, time, key, press=True) -> KeyboardEvent:
 
 
 def NewEvent(event: Dict) -> BaseEvent:
-    if event["type"] in ["MousePress", "MouseRelease"]:
+    if event["type"] in [MousePressEvent.EVENT_TYPE, MouseReleaseEvent.EVENT_TYPE]:
         return NewMouseEvent(id=event["id"], time=event["time"],
                                 x=event["coord"]["x"], y=event["coord"]["y"],
-                                button=event["button"], press=(event["type"] == "MousePress"))
-    elif event["type"] in ["KeyboardPress", "KeyboardRelease"]:
+                                button=event["button"], press=(event["type"] == MousePressEvent.EVENT_TYPE))
+    elif event["type"] in [KeyboardPressEvent.EVENT_TYPE, KeyboardReleaseEvent.EVENT_TYPE]:
         return NewKeyboardEvent(id=event["id"], time=event["time"],
-                                key=event["key"], press=(event["type"] == "KeyboardPress"))
+                                key=event["key"], press=(event["type"] == KeyboardPressEvent.EVENT_TYPE))
 
